@@ -29,11 +29,11 @@ public class Main {
         int articleCount = BlogUtil.getArticleCount(Constants.BLOG_HOME);
         int pageCount = BlogUtil.getArticlePageCount(articleCount);
         //博主对象
-        Blogger blogger = new Blogger(StringUtil.subId(Constants.BLOG_HOME),articleCount,pageCount);
-        System.out.println(blogger);
+        Blogger blogger = new Blogger("weixin_44708240",articleCount,pageCount);
+        
         JDBCUtil.executeUpdate(insertBlogger, blogger.getId(),blogger.getArticleCount(),blogger.getPageCount());
         //文章列表
-        List<Article> articlelist = BlogUtil.getArticleList(1, 1, 
+        List<Article> articlelist = BlogUtil.getArticleList(1, 3, 
                 Constants.BLOG_HOME, StringUtil.subId(Constants.BLOG_HOME));
         for(Article article:articlelist) {
             System.out.println(article);

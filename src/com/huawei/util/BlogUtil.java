@@ -41,8 +41,8 @@ public class BlogUtil {
             e.printStackTrace();
         }
         //2.查找包含博客数量的元素
-        Element countElement = doc.select("a.div").first();
-        System.out.println(countElement.text());
+        //Element countElement = doc.select("dt.span").first();
+        Element countElement = doc.getElementsByClass("count").first();
         //3.取出元素包含的文本，这里为博客数量
         String articleCount = countElement.text();
         
@@ -85,7 +85,7 @@ public class BlogUtil {
         String articleListUrl = null;
         for(int i = pageBegin;i<=pageEnd;i++) {
             //拼接url
-            articleListUrl = Constants.BLOG_HOME + Constants.ARTICLE_LIST_URL + i;
+            articleListUrl = Constants.BLOG_HOME  + i;
 
             //1.获取document对象
             Document doc = null;

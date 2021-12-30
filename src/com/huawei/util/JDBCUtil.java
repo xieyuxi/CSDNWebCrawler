@@ -136,6 +136,8 @@ public class JDBCUtil {
             }
             // 执行SQL语句
             pstmt.executeUpdate();
+            
+            pstmt=conn.prepareStatement(preparedSql,Statement.RETURN_GENERATED_KEYS);
             ResultSet resultSet = pstmt.getGeneratedKeys();
             
             if(resultSet.next()) {
